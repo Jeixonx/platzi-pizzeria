@@ -76,10 +76,11 @@ public class PizzaService {
     }
 
     //transiaccional hace que si algo falla en la funcion hace rollback, no rollback for es para poner alguna excepcion
-    @Transactional(noRollbackFor = EmailApiException.class)
+    //@Transactional(noRollbackFor = EmailApiException.class)
+    @Transactional
     public void updatePrice(UpdatePizzaPriceDto dto) {
         this.pizzaRepository.updatePrice(dto);
-        this.sendEmail();
+        //this.sendEmail();
     }
 
     private void sendEmail() {
